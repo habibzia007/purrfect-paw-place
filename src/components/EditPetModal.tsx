@@ -84,10 +84,16 @@ const EditPetModal = ({ pet, isOpen, onClose, onUpdate }: EditPetModalProps) => 
         price: parseFloat(form.price)
       };
       
-      const updated = await updateExistingPet(pet.id, updatedPet);
-      if (updated) {
-        onUpdate(updated);
-      }
+      // The error was here - we were trying to check if updateExistingPet() is truthful
+      // but the function returns void. Let's call it and then pass the updated pet to onUpdate
+      await updateExistingPet(pet.id, updatedPet);
+      
+      // After updating, we'll use the updatedPet data directly
+      onUpdate({
+        ...pet,
+        ...updatedPet
+      } as Pet);
+      
       onClose();
     } catch (error) {
       console.error("Error updating pet:", error);
