@@ -73,8 +73,9 @@
     @apply bg-pet-purple text-white px-4 py-2 rounded-full font-medium transition-all duration-300 hover:bg-pet-purple-dark flex items-center justify-center gap-2;
   }
   
+  /* Fixed: Removed 'group' from @apply and made it a separate class to use directly in HTML */
   .paw-button {
-    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-pet-purple transition duration-300 ease-out border-2 border-pet-purple rounded-full shadow-md group;
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-pet-purple transition duration-300 ease-out border-2 border-pet-purple rounded-full shadow-md;
   }
   
   .paw-button-inner {
