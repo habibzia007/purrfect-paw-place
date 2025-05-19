@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import { Pet } from '../types/pet';
 
@@ -52,6 +51,17 @@ export const getPetById = async (id: number): Promise<Pet> => {
     return response.data;
   } catch (error) {
     console.error(`Error fetching pet ${id}:`, error);
+    throw error;
+  }
+};
+
+// Get favorites
+export const getFavorites = async (): Promise<Pet[]> => {
+  try {
+    const response = await api.get('/pets/favorites');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching favorite pets:', error);
     throw error;
   }
 };

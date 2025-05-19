@@ -12,6 +12,9 @@ router.get('/popular', petController.getPopularPets);
 // Get random stars (featured pets)
 router.get('/stars', petController.getRandomStars);
 
+// Get favorites
+router.get('/favorites', petController.getFavorites);
+
 // Get pet by ID
 router.get('/:id', petController.getPetById);
 
